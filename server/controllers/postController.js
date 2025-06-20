@@ -47,3 +47,51 @@ export const addNewPost = async (req, res) => {
   }
 };
 
+export const getAllPost = async (req, res) => {
+  try {
+    const posts = await Post.find()
+      .sort({ createdAt: -1 })
+      .populate({ path: "author", select: "username profilePicture" })
+      .populate({
+        path: "comments",
+        sort: { createdAt: -1 },
+        populate: {
+          path: "author",
+          select: "username profilePicture",
+        },
+      });
+    return res.status(200).json({
+      posts,
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getUserPost = async (req, res) => {
+  try {
+    const authorId = req.id;
+    const posts = await Post.find({ author: authorId })
+      .sort({ createdAt: -1 })
+      .populate({
+        path: "author",
+        select: "username, profilePicture",
+      })
+      .populate({
+        path: "comments",
+        sort: { createdAt: -1 },
+        populate: {
+          path: "author",
+          select: "username, profilePicture",
+        },
+      });
+    return res.status(200).json({
+      posts,
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
