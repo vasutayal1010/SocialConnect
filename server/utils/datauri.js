@@ -1,10 +1,10 @@
-import { v2 as cloudinary } from "cloudinary";
-import dotenv from "dotenv";
-dotenv.config({});
+import DataUriParser from "datauri/parser.js";
+import path from "path";
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-});
-export default cloudinary;
+const parser = new DataUriParser();
+
+const getDataUri = (file) => {
+  const extName = path.extname(file.originalname).toString();
+  return parser.format(extName, file.buffer).content;
+};
+export default getDataUri;
