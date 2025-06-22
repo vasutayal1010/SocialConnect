@@ -30,6 +30,6 @@ app.use("/api/v1/message", messageRoute);
 
 //Server
 server.listen(PORT, () => {
-  //connectDB();
+  connectDB();
   console.log(`Server listen at port ${PORT}`);
 });
