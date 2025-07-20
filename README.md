@@ -77,11 +77,10 @@ The following technologies and tools have been equipped to develop this project 
 ## Future Enhancements
 
 <ul>
-    <li>More options for board menu</li>
-    <li>logging in backend application with log file.
-</li>
-    <li>Dockerize front end and backend application with DockerFile and simulate deployment using docker based deployment
-</li>
+    <li>Image & Video Compression : Add automatic media compression on uploads to optimize performance and reduce bandwidth usage.</li>
+    <li>User Mentions and Hashtags : Enable tagging users in posts or comments and using hashtags for content discovery.</li>
+    <li>Voice/Video Calling : Extend the chat system to include peer-to-peer audio or video calling using WebRTC.</li>
+    <li>AI-based Content Moderation : Use machine learning to detect and filter abusive or inappropriate content automatically.</li>
 </ul>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
