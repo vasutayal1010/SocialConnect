@@ -77,10 +77,10 @@ The following technologies and tools have been equipped to develop this project 
 ## Future Enhancements
 
 <ul>
-    <li>Image & Video Compression : Add automatic media compression on uploads to optimize performance and reduce bandwidth usage.</li>
-    <li>User Mentions and Hashtags : Enable tagging users in posts or comments and using hashtags for content discovery.</li>
-    <li>Voice/Video Calling : Extend the chat system to include peer-to-peer audio or video calling using WebRTC.</li>
-    <li>AI-based Content Moderation : Use machine learning to detect and filter abusive or inappropriate content automatically.</li>
+    <li><b>Image & Video Compression :</b> Add automatic media compression on uploads to optimize performance and reduce bandwidth usage.</li>
+    <li><b>User Mentions and Hashtags :</b> Enable tagging users in posts or comments and using hashtags for content discovery.</li>
+    <li><b>Voice/Video Calling :</b> Extend the chat system to include peer-to-peer audio or video calling using WebRTC.</li>
+    <li><b>AI-based Content Moderation :</b> Use machine learning to detect and filter abusive or inappropriate content automatically.</li>
 </ul>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
