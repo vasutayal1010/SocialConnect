@@ -1,11 +1,11 @@
-import { setPosts } from "@/redux/postSlice";
+import { setPosts } from "../redux/postSlice";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 const useGetAllPost = () => {
   const dispatch = useDispatch();
-  const BACKEND_URI = "http//:localhost8000";
+  const BACKEND_URI = "http://localhost:8000";
   useEffect(() => {
     const fetchAllPost = async () => {
       try {

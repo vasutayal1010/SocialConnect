@@ -60,3 +60,62 @@ export const getMessage = async (req, res) => {
   }
 };
   
+export const sendMessagee = async (req, res) => {
+  try {
+    const senderId = req.id;
+    const receiverId = req.params.id;
+    const textMessage = req.body.textMessage; // ✅ fixed here
+
+    let imageUrl = "";
+
+    if (req.file) {
+      const bufferStream = cloudinary.v2.uploader.upload_stream(
+        { resource_type: "image" },
+        async (error, result) => {
+          if (error) {
+            console.error("Cloudinary upload failed:", error);
+            return res
+              .status(500)
+              .json({ success: false, message: "Image upload failed" });
+          }
+
+          imageUrl = result.secure_url;
+
+          // Now save the message
+          const newMessage = await Message.create({
+            senderId,
+            receiverId,
+            message: textMessage,
+            image: imageUrl,
+          });
+
+          const receiverSocketId = getReceiverSocketId(receiverId);
+          if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+          }
+
+          res.status(201).json({ success: true, newMessage });
+        }
+      );
+
+      bufferStream.end(req.file.buffer);
+    } else {
+      const newMessage = await Message.create({
+        senderId,
+        receiverId,
+        message: textMessage,
+      });
+
+      const receiverSocketId = getReceiverSocketId(receiverId);
+      if (receiverSocketId) {
+        io.to(receiverSocketId).emit("newMessage", newMessage);
+      }
+
+      res.status(201).json({ success: true, newMessage });
+    }
+  } catch (error) {
+    console.error("Send message error:", error);
+    res.status(500).json({ success: false, message: "Message send failed" });
+  }
+};
+

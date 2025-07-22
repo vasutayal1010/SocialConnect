@@ -16,6 +16,8 @@ const PORT = process.env.PORT || 5000;
 //Middlewares
 app.use(express.json());
 app.use(cookieParser());
+//app.use("/uploads", express.static("uploads"));
+
 app.use(urlencoded({ extended: true }));
 const corsOptions = {
   origin: process.env.URL,

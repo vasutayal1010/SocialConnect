@@ -1,5 +1,5 @@
-import { setMessages } from "@/redux/chatSlice";
-import { setPosts } from "@/redux/postSlice";
+import { setMessages } from "../redux/chatSlice";
+import { setPosts } from "../redux/postSlice";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 const useGetAllMessage = () => {
   const dispatch = useDispatch();
   const { selectedUser } = useSelector((store) => store.auth);
-  const BACKEND_URI = "http//:localhost8000";
+  const BACKEND_URI = "http://localhost:8000";
   useEffect(() => {
     const fetchAllMessage = async () => {
       try {

@@ -1,4 +1,4 @@
-import { setUserProfile } from "@/redux/authSlice";
+import { setUserProfile } from "../redux/authSlice";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 const useGetUserProfile = (userId) => {
   const dispatch = useDispatch();
   // const [userProfile, setUserProfile] = useState(null);
-  const BACKEND_URI = "http//:localhost8000";
+  const BACKEND_URI = "http://localhost:8000";
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
