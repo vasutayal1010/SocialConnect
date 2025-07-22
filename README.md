@@ -23,12 +23,7 @@
         <li><a href="#technolgy-used">Technologies</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
     <li><a href="#features">Features</a></li>
-    <li><a href="#database-design">Database Design</a></li>
-    <li><a href="#application-screenshots">Application Screenshots</a></li>
     <li><a href="#future-enhancements">Future Enhancements</a></li>
   </ol>
 </details>
